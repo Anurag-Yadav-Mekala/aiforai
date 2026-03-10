@@ -9,8 +9,10 @@ const app  = express();
 const PORT = process.env.PORT || 3000;
 
 // Create uploads folder if it doesn't exist (needed by older multer disk configs)
-const uploadsDir = path.join(__dirname, '../uploads');
-if (!fs.existsSync(uploadsDir)) fs.mkdirSync(uploadsDir, { recursive: true });
+if (process.env.NODE_ENV !== 'production') {
+  const uploadsDir = path.join(__dirname, '../uploads');
+  if (!fs.existsSync(uploadsDir)) fs.mkdirSync(uploadsDir, { recursive: true });
+}
 
 // ── Middleware ─────────────────────────────────────────────────
 app.use(cors());
