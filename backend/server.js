@@ -51,12 +51,16 @@ app.get('/summary', (req, res) => res.sendFile(path.join(frontendPath, 'pages/su
 app.use('/api', (req, res) => res.status(404).json({ error: 'API route not found' }));
 
 // ── Start ──────────────────────────────────────────────────────
-app.listen(PORT, () => {
-  console.log('\n------------------------------------');
-  console.log(`🎓 LectureLens AI running`);
-  console.log(`🌐 http://localhost:${PORT}`);
-  console.log(`✅ Gemini key:     ${process.env.GEMINI_API_KEY     ? 'SET' : '❌ MISSING'}`);
-  console.log(`✅ Groq key:       ${process.env.GROQ_API_KEY       ? 'SET' : '❌ MISSING'}`);
-  console.log(`✅ ElevenLabs key: ${process.env.ELEVENLABS_API_KEY ? 'SET' : '❌ MISSING'}`);
-  console.log('------------------------------------\n');
-});
+if (process.env.NODE_ENV !== "production") {
+  app.listen(PORT, () => {
+    console.log('\n------------------------------------');
+    console.log(`🎓 LectureLens AI running`);
+    console.log(`🌐 http://localhost:${PORT}`);
+    console.log(`✅ Gemini key:     ${process.env.GEMINI_API_KEY     ? 'SET' : '❌ MISSING'}`);
+    console.log(`✅ Groq key:       ${process.env.GROQ_API_KEY       ? 'SET' : '❌ MISSING'}`);
+    console.log(`✅ ElevenLabs key: ${process.env.ELEVENLABS_API_KEY ? 'SET' : '❌ MISSING'}`);
+    console.log('------------------------------------\n');
+  });
+}
+
+module.exports = app;
