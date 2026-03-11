@@ -116,8 +116,8 @@ All three are free. No credit card needed for Groq.
 
 ```bash
 # Clone the repo
-git clone https://github.com/your-username/lecturelens-ai.git
-cd lecturelens-ai
+git clone https://github.com/praneethgarre/aiforai.git
+cd aiforai
 ```
 
 ---
