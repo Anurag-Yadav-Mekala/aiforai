@@ -40,7 +40,7 @@ LectureLens AI takes raw classroom content — an audio recording or a photo of 
 ## Project Structure
 
 ```
-lecturelens/
+aiforai/
 │
 ├── backend/
 │   ├── server.js                   # Express server, routes, static serving
